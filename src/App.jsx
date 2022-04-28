@@ -1,5 +1,14 @@
+import Header from './Layouts/Header';
+
+import GlobalStyles from './Assets/Styles/GlobalStyles';
+
 function App() {
-  return <h1>It Works!</h1>;
+  return (
+    <>
+      <GlobalStyles />
+      <Header />
+    </>
+  );
 }
 
 export default App;
