@@ -14,6 +14,15 @@ export default createGlobalStyle`
     font-family: 'Nunito Sans', sans-serif;
   }
 
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    
+    @media (max-width: 1440px) {
+      margin: 0 2rem;
+    }
+  }
+
   :root {
     --dark-blue: hsl(209, 23%, 22%); // Dark Mode Elements
     --very-dark-blue: hsl(207, 26%, 17%); // Dark Mode Background

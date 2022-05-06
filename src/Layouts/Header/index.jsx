@@ -5,7 +5,7 @@ import { Container, HeaderGroup, SwitchContainer } from './styles';
 
 const Header = () => (
   <Container>
-    <HeaderGroup>
+    <HeaderGroup className="container">
       <h3>Where in the World?</h3>
       <SwitchContainer>
         <FontAwesomeIcon icon={faMoon} />
