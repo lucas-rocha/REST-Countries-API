@@ -1,5 +1,15 @@
-import SearchBar from '../../Components/SearchBar';
+import { SearchRow } from './styles';
 
-const Home = () => <SearchBar />;
+import SearchBar from '../../Components/SearchBar';
+import FilterBar from '../../Components/FilterBar';
+
+const Home = () => (
+  <div className="container">
+    <SearchRow>
+      <SearchBar />
+      <FilterBar />
+    </SearchRow>
+  </div>
+);
 
 export default Home;
