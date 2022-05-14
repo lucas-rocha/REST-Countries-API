@@ -6,9 +6,9 @@ export const Container = styled.div`
 
   min-width: 400px;
   height: 50px;
-  background: var(--white);
-  color: var(--dark-gray);
-  box-shadow: 0px 0px 4px hsl(0deg 0% 52% / 26%);
+  background: ${(props) => props.theme.background.secondary};
+  color: ${(props) => props.theme.colors.primary};
+  box-shadow: ${(props) => props.theme.shadow.primary};
   border-radius: 5px;
 
   @media (min-width: 550px) {
@@ -29,10 +29,12 @@ export const Input = styled.input`
   height: 100%;
   background-color: transparent;
   font-weight: 600;
+  color: ${(props) => props.theme.colors.primary};
 
   flex-grow: 1;
 
   ::placeholder {
-    font-weight: 600;
+    font-weight: 100;
+    color: ${(props) => props.theme.colors.primary};
   }
 `;

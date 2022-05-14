@@ -3,11 +3,11 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 
 import { Container, HeaderGroup, SwitchContainer } from './styles';
 
-const Header = () => (
+const Header = ({ toggleTheme }) => (
   <Container>
     <HeaderGroup className="container">
       <h3>Where in the World?</h3>
-      <SwitchContainer>
+      <SwitchContainer onClick={toggleTheme}>
         <FontAwesomeIcon icon={faMoon} />
         <b>Dark Mode</b>
       </SwitchContainer>

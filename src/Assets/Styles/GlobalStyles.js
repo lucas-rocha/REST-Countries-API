@@ -15,7 +15,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: var(--very-light-gray);
+    background: ${(props) => props.theme.background.primary};
+    height: 100vh;
   }
 
   .container {

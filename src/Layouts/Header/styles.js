@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   width: 100vw;
-  background-color: #fff;
-  box-shadow: 0px -8px 12px var(--dark-gray);
+  background-color: ${(props) => props.theme.background.secondary};
+  color: ${(props) => props.theme.colors.primary};
+  box-shadow: ${(props) => props.theme.shadow.primary};
 `;
 
 export const HeaderGroup = styled.div`
@@ -17,6 +18,7 @@ export const HeaderGroup = styled.div`
 export const SwitchContainer = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   b {
     font-size: 12px;

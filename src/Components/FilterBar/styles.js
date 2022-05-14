@@ -5,9 +5,9 @@ export const Container = styled.div`
   width: 200px;
   height: 50px;
   margin-top: 2rem;
-  background: var(--white);
-  color: var(--very-dark-blue);
-  box-shadow: 0px 0px 4px hsl(0deg 0% 52% / 26%);
+  background: ${(props) => props.theme.background.secondary};
+  color: ${(props) => props.theme.colors.primary};
+  box-shadow: ${(props) => props.theme.shadow.primary};
   border-radius: 5px;
 
   @media (min-width: 700px) {
@@ -37,9 +37,8 @@ export const SelectOption = styled.ul`
   height: auto;
   margin-top: 5px;
   padding: 1rem;
-  background: var(--white);
-  color: var(--dark-gray);
-  box-shadow: 0px 0px 4px hsl(0deg 0% 52% / 26%);
+  background: ${(props) => props.theme.background.secondary};
+  box-shadow: ${(props) => props.theme.shadow.primary};
   border-radius: 5px;
 `;
 
@@ -47,6 +46,6 @@ export const SelectList = styled.li`
   height: 30px;
   list-style: none;
   line-height: 30px;
-  color: var(--very-dark-blue);
+  color: ${(props) => props.theme.colors.primary};
   cursor: pointer;
 `;
