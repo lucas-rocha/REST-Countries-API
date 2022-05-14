@@ -7,7 +7,7 @@ export const Container = styled.header`
 `;
 
 export const HeaderGroup = styled.div`
-  min-height: 60px;
+  min-height: 70px;
 
   display: flex;
   justify-content: space-between;

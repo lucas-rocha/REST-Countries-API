@@ -14,6 +14,10 @@ export default createGlobalStyle`
     font-family: 'Nunito Sans', sans-serif;
   }
 
+  body {
+    background: var(--very-light-gray);
+  }
+
   .container {
     max-width: 1440px;
     margin: 0 auto;
