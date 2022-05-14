@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 50px;
   margin-top: 2rem;
   background: var(--white);
-  color: var(--dark-gray);
+  color: var(--very-dark-blue);
   box-shadow: 0px 0px 4px hsl(0deg 0% 52% / 26%);
   border-radius: 5px;
 
@@ -47,5 +47,6 @@ export const SelectList = styled.li`
   height: 30px;
   list-style: none;
   line-height: 30px;
+  color: var(--very-dark-blue);
   cursor: pointer;
 `;
