@@ -7,20 +7,20 @@ import {
   Title,
 } from './style';
 
-const CountryGridItem = () => (
+const CountryGridItem = ({ flag, name, population, region, capital }) => (
   <Container>
-    <Image src="https://flagcdn.com/w320/br.png" />
+    <Image src={flag} />
     <InfoBody>
-      <Title>Brazil</Title>
+      <Title>{name}</Title>
       <InfoList>
         <InfoListItem>
-          <b>Population:</b> 206,135,893
+          <b>Population:</b> {population.toLocaleString('en-US')}
         </InfoListItem>
         <InfoListItem>
-          <b>Region:</b> Americas
+          <b>Region:</b> {region}
         </InfoListItem>
         <InfoListItem>
-          <b>Capital:</b> Brasília
+          <b>Capital:</b> {capital}
         </InfoListItem>
       </InfoList>
     </InfoBody>
