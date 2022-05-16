@@ -9,4 +9,8 @@ export const Container = styled.div`
   @media (min-width: 600px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, auto));
   }
+
+  > a {
+    text-decoration: none;
+  }
 `;

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { getCountries } from '../../Api/Services/Countries';
 import useCountries from '../../Utils/Hooks/useCountries';
@@ -19,14 +20,16 @@ const CountryGrid = () => {
   return (
     <Container>
       {countries.map((country) => (
-        <CountryGridItem
-          key={country.ccn3}
-          flag={country.flags.png}
-          name={country.name.common}
-          population={country.population}
-          region={country.region}
-          capital={country.capital}
-        />
+        <Link to={`country/${country.name.common}`}>
+          <CountryGridItem
+            key={country.ccn3}
+            flag={country.flags.png}
+            name={country.name.common}
+            population={country.population}
+            region={country.region}
+            capital={country.capital}
+          />
+        </Link>
       ))}
     </Container>
   );

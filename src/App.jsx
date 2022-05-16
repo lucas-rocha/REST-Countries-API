@@ -10,6 +10,7 @@ import GlobalStyles from './Assets/Styles/GlobalStyles';
 
 import Header from './Layouts/Header';
 import Home from './Pages/Home';
+import CountryDetail from './Pages/CountryDetailsPage';
 
 function App() {
   const [theme, setTheme] = usePersistedState('theme', light);
@@ -26,6 +27,7 @@ function App() {
           <Header toggleTheme={toggleTheme} />
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route path="country/:country" element={<CountryDetail />} />
           </Routes>
         </BrowserRouter>
       </CountriesProvider>
