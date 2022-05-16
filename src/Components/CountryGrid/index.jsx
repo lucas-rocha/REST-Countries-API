@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { getCountries } from '../../Api/Services/Countries';
+import useCountries from '../../Utils/Hooks/useCountries';
 
 import CountryGridItem from '../CountryGridItem';
 
 import { Container } from './styles';
 
 const CountryGrid = () => {
-  const [countries, setCountries] = useState([]);
+  const { countries, setCountries } = useCountries();
 
   useEffect(() => {
     getCountries().then((response) => {
