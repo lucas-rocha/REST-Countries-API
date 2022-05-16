@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: relative;
   width: 200px;
   height: 50px;
   margin-top: 2rem;
@@ -16,6 +15,7 @@ export const Container = styled.div`
 `;
 
 export const SelectContainer = styled.div`
+  position: relative;
   height: 100%;
   margin: 0 1rem;
 
@@ -33,8 +33,9 @@ export const SelectIcons = styled.div`
 `;
 
 export const SelectOption = styled.ul`
+  position: absolute;
   width: 200px;
-  height: auto;
+  z-index: 1;
   margin-top: 5px;
   padding: 1rem;
   background: ${(props) => props.theme.background.secondary};

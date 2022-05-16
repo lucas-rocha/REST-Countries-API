@@ -14,4 +14,8 @@ export default {
   shadow: {
     primary: '0px 0px 4px hsl(200, 15%, 8%)',
   },
+
+  text: {
+    primary: 'hsl(0, 0%, 98%)',
+  },
 };
