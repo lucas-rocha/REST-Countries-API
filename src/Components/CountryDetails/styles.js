@@ -63,5 +63,11 @@ export const DetailsFooter = styled.div`
 `;
 
 export const DetailsFooterButton = styled.div`
+  display: flex;
+
   margin-top: 0.5rem;
+
+  > button {
+    margin-right: 0.5rem;
+  }
 `;

@@ -27,7 +27,7 @@ function App() {
           <Header toggleTheme={toggleTheme} />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="country/:country" element={<CountryDetail />} />
+            <Route path="country/:countryName" element={<CountryDetail />} />
           </Routes>
         </BrowserRouter>
       </CountriesProvider>

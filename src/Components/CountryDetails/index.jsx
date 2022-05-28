@@ -1,4 +1,9 @@
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getCountryByName } from '../../Api/Services/Countries';
+
 import Button from '../Button';
+
 import {
   Container,
   Details,
@@ -9,47 +14,67 @@ import {
   Title,
 } from './styles';
 
-const CountryDetails = () => (
-  <Container>
-    <Image src="https://flagcdn.com/br.svg" />
-    <Details>
-      <Title>Brazil</Title>
-      <DetailsList>
-        <li>
-          <b>Native Name:</b> Brazil
-        </li>
-        <li>
-          <b>Population:</b> 212,245,121
-        </li>
-        <li>
-          <b>Region:</b> Americas
-        </li>
-        <li>
-          <b>Sub Region:</b> South America
-        </li>
-        <li>
-          <b>Capital:</b> Brasília
-        </li>
-      </DetailsList>
-      <DetailsList>
-        <li>
-          <b>Native Name:</b> Brazil
-        </li>
-        <li>
-          <b>Population:</b> 212,245,121
-        </li>
-        <li>
-          <b>Region:</b> Americas
-        </li>
-      </DetailsList>
-      <DetailsFooter>
-        <h3>Border Countries:</h3>
-        <DetailsFooterButton>
-          <Button text="Argentina" />
-        </DetailsFooterButton>
-      </DetailsFooter>
-    </Details>
-  </Container>
-);
+const CountryDetails = () => {
+  const [country, setCountry] = useState();
+  const { countryName } = useParams();
+
+  useEffect(() => {
+    getCountryByName(countryName).then((response) => setCountry(response));
+  }, [countryName]);
+
+  return (
+    (country && (
+      <Container>
+        <Image src={country.flags.svg} />
+        <Details>
+          <Title>{country.name.common}</Title>
+          <DetailsList>
+            <li>
+              <b>Native Name: </b>
+              {
+                country.name.nativeName[Object.keys(country.name.nativeName)[0]]
+                  .official
+              }
+            </li>
+            <li>
+              <b>Population: </b> {country.population.toLocaleString('en')}
+            </li>
+            <li>
+              <b>Region: </b> {country.region}
+            </li>
+            <li>
+              <b>Sub Region: </b> {country.subregion}
+            </li>
+            <li>
+              <b>Capital:</b> {country.capital}
+            </li>
+          </DetailsList>
+          <DetailsList>
+            <li>
+              <b>Top Level Domain: </b> {country.tld}
+            </li>
+            <li>
+              <b>Currencies: </b>
+              {country.currencies[Object.keys(country.currencies)[0]].name}
+            </li>
+            <li>
+              <b>Languages: </b>
+              {Object.values(country.languages).toString()}
+            </li>
+          </DetailsList>
+          <DetailsFooter>
+            <h3>Border Countries:</h3>
+            <DetailsFooterButton>
+              {country.borders.map((border) => (
+                <Button text={border} />
+              ))}
+            </DetailsFooterButton>
+          </DetailsFooter>
+        </Details>
+      </Container>
+    )) ||
+    null
+  );
+};
 
 export default CountryDetails;
