@@ -28,10 +28,15 @@ export const Details = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
 
     width: 50%;
     margin: 0;
     padding-left: 5rem;
+  }
+
+  > ul:last-child {
+    width: 40%;
   }
 `;
 
@@ -48,7 +53,6 @@ export const DetailsList = styled.ul`
   }
 
   @media (min-width: 700px) {
-    width: 50%;
     margin: 0;
     align-self: flex-start;
   }
@@ -64,6 +68,8 @@ export const DetailsFooter = styled.div`
 
 export const DetailsFooterButton = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
 
   margin-top: 0.5rem;
 
