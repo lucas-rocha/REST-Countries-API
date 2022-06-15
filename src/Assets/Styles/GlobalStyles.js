@@ -14,9 +14,11 @@ export default createGlobalStyle`
     font-family: 'Nunito Sans', sans-serif;
   }
 
-  body {
-    background: ${(props) => props.theme.background.primary};
+  html, body {
+    width: 100vw;
     height: 100vh;
+    background: ${(props) => props.theme.background.primary};
+    overflow-x: hidden; 
   }
 
   .container {
