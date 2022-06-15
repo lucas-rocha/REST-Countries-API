@@ -5,11 +5,12 @@ export const getCountries = () =>
 
 export const getCountryByName = async (countryName) => {
   try {
+    const countryNameEncode = encodeURIComponent(countryName);
     const response = await axios.get(
-      `https://restcountries.com/v3.1/name/${countryName}`
+      `https://restcountries.com/v3.1/name/${countryNameEncode}`
     );
     return response.data[0];
   } catch (error) {
-    return console.error(error);
+    return console.error(error.message);
   }
 };

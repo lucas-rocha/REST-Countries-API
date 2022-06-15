@@ -55,21 +55,24 @@ const CountryDetails = () => {
             </li>
             <li>
               <b>Currencies: </b>
-              {country.currencies[Object.keys(country.currencies)[0]].name}
+              {country.currencies &&
+                country.currencies[Object.keys(country.currencies)[0]].name}
             </li>
             <li>
               <b>Languages: </b>
               {Object.values(country.languages).toString()}
             </li>
           </DetailsList>
-          <DetailsFooter>
-            <h3>Border Countries:</h3>
-            <DetailsFooterButton>
-              {country.borders.map((border) => (
-                <Button text={border} />
-              ))}
-            </DetailsFooterButton>
-          </DetailsFooter>
+          {country.borders && (
+            <DetailsFooter>
+              <h3>Border Countries:</h3>
+              <DetailsFooterButton>
+                {country.borders.map((border) => (
+                  <Button text={border} />
+                ))}
+              </DetailsFooterButton>
+            </DetailsFooter>
+          )}
         </Details>
       </Container>
     )) ||

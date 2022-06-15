@@ -34,10 +34,6 @@ export const Details = styled.div`
     margin: 0;
     padding-left: 5rem;
   }
-
-  > ul:last-child {
-    width: 40%;
-  }
 `;
 
 export const Title = styled.h1`
@@ -53,6 +49,7 @@ export const DetailsList = styled.ul`
   }
 
   @media (min-width: 700px) {
+    max-width: 50%;
     margin: 0;
     align-self: flex-start;
   }
