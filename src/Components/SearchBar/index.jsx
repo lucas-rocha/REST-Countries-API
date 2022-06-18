@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,13 +6,11 @@ import useCountries from '../../Utils/Hooks/useCountries';
 import searchCountryByInputName from '../../Utils/searchCountryByInputName';
 
 const SearchBar = () => {
-  const { setCountries } = useCountries();
-  const [inputText, setInputText] = useState();
+  const { countries, setCountries } = useCountries();
 
   const inputHandler = (e) => {
     const lowerCase = e.target.value.toLowerCase();
-    setInputText(lowerCase);
-    const filteredCountries = searchCountryByInputName(inputText);
+    const filteredCountries = searchCountryByInputName(countries, lowerCase);
     setCountries(filteredCountries);
   };
 
