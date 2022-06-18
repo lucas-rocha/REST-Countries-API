@@ -13,9 +13,14 @@ const CountryGrid = () => {
 
   useEffect(() => {
     getCountries().then((response) => {
-      setCountries(response.data);
+      try {
+        localStorage.setItem('countries', JSON.stringify(response.data));
+        return setCountries(response.data);
+      } catch (error) {
+        return error;
+      }
     });
-  }, [countries]);
+  }, []);
 
   return (
     <Container>
