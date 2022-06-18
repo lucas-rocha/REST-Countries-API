@@ -11,6 +11,7 @@ import GlobalStyles from './Assets/Styles/GlobalStyles';
 import Header from './Layouts/Header';
 import Home from './Pages/Home';
 import CountryDetail from './Pages/CountryDetailsPage';
+import NotFoundPage from './Pages/NotFoundPage';
 
 function App() {
   const [theme, setTheme] = usePersistedState('theme', light);
@@ -28,6 +29,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="country/:countryName" element={<CountryDetail />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
       </CountriesProvider>

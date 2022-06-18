@@ -27,7 +27,7 @@ const CountryGrid = () => {
       {countries.map((country) => (
         <Link to={`country/${country.name.common.toLowerCase()}`}>
           <CountryGridItem
-            key={country.ccn3}
+            key={country.cca2}
             flag={country.flags.png}
             name={country.name.common}
             population={country.population}

@@ -68,7 +68,7 @@ const CountryDetails = () => {
               <h3>Border Countries:</h3>
               <DetailsFooterButton>
                 {country.borders.map((border) => (
-                  <Button text={border} />
+                  <Button text={border} key={border} />
                 ))}
               </DetailsFooterButton>
             </DetailsFooter>

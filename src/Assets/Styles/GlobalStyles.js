@@ -14,7 +14,7 @@ export default createGlobalStyle`
     font-family: 'Nunito Sans', sans-serif;
   }
 
-  html, body {
+  #root, html, body {
     width: 100vw;
     height: 100vh;
     background: ${(props) => props.theme.background.primary};
@@ -23,6 +23,7 @@ export default createGlobalStyle`
 
   .container {
     max-width: 1440px;
+    height: calc(100% - 4.4rem);
     margin: 0 auto;
     
     @media (max-width: 1440px) {
