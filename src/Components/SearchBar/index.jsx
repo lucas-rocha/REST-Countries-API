@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import { Container, Input, SearchIcon } from './styles';
 import useCountries from '../../Utils/Hooks/useCountries';
-import searchCountryByInputName from '../../Utils/searchCountryByInputName';
+import { searchCountryByInputName } from '../../Utils/filterCountries';
+
+import { Container, Input, SearchIcon } from './styles';
 
 const SearchBar = () => {
   const { countries, setCountries } = useCountries();

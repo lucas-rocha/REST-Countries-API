@@ -2,7 +2,9 @@ import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import searchCountryByRegion from '../../Utils/searchCountryByRegion';
+
+import useCountries from '../../Utils/Hooks/useCountries';
+import { searchCountryByRegion } from '../../Utils/filterCountries';
 
 import {
   Container,
@@ -11,7 +13,6 @@ import {
   SelectList,
   SelectOption,
 } from './styles';
-import useCountries from '../../Utils/Hooks/useCountries';
 
 const FilterBar = () => {
   const { setCountries } = useCountries();
