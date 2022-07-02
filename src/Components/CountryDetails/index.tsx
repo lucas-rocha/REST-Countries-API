@@ -14,8 +14,34 @@ import {
   Title,
 } from './styles';
 
-const CountryDetails = () => {
-  const [country, setCountry] = useState();
+interface CountryItem {
+  name: {
+    common: string;
+    nativeName: {
+      [key: string]: {
+        official: string;
+      };
+    };
+  };
+  flags: {
+    svg: string;
+  };
+  population: number;
+  region: string;
+  subregion: string;
+  capital: string;
+  tld: string;
+  currencies: {
+    [key: string]: {
+      name: string;
+    };
+  };
+  languages: string;
+  borders: [];
+}
+
+const CountryDetails: React.FC = () => {
+  const [country, setCountry] = useState<CountryItem>();
   const { countryName } = useParams();
 
   useEffect(() => {
