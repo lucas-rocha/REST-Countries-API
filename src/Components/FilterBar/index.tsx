@@ -14,13 +14,13 @@ import {
   SelectOption,
 } from './styles';
 
-const FilterBar = () => {
+const FilterBar: React.FC = () => {
   const { setCountries } = useCountries();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedRegion, setSelectedRegion] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState('');
   const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  const filterByRegion = (region) => {
+  const filterByRegion = (region: string) => {
     const filteredCountries = searchCountryByRegion(region);
     setCountries(filteredCountries);
   };
@@ -34,8 +34,8 @@ const FilterBar = () => {
             <FontAwesomeIcon
               icon={faCircleXmark}
               onClick={() => {
-                setSelectedRegion(null);
-                filterByRegion(null);
+                setSelectedRegion('');
+                filterByRegion('');
               }}
             />
           ) : null}
