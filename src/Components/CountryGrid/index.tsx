@@ -8,7 +8,7 @@ import CountryGridItem from '../CountryGridItem';
 
 import { Container } from './styles';
 
-interface CountryItems {
+export interface CountryItems {
   cca2: string;
   flags: {
     png: string;
