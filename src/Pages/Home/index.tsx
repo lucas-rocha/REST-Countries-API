@@ -4,7 +4,7 @@ import SearchBar from '../../Components/SearchBar';
 import FilterBar from '../../Components/FilterBar';
 import CountryGrid from '../../Components/CountryGrid';
 
-const Home = () => (
+const Home: React.FC = () => (
   <div className="container">
     <SearchRow>
       <SearchBar />

@@ -4,7 +4,11 @@ import { faMoon } from '@fortawesome/free-regular-svg-icons';
 
 import { Container, HeaderGroup, SwitchContainer } from './styles';
 
-const Header = ({ toggleTheme }) => (
+interface HeaderProps {
+  toggleTheme: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ toggleTheme }) => (
   <Container>
     <HeaderGroup className="container">
       <Link to="/">

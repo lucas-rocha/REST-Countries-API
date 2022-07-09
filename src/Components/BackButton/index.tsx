@@ -5,7 +5,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import Button from '../Button';
 
-const BackButton = () => {
+const BackButton: React.FC = () => {
   const navigate = useNavigate();
 
   const handleClick = () => navigate('/');

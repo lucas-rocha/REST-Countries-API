@@ -27,7 +27,7 @@ function App() {
         <BrowserRouter>
           <Header toggleTheme={toggleTheme} />
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="country/:countryName" element={<CountryDetail />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

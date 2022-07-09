@@ -10,7 +10,7 @@ import Button from '../../Components/Button';
 
 import { Container, SubTitle, Title } from './styles';
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FC = () => {
   const navigate = useNavigate();
 
   const goToHomePage = () => {

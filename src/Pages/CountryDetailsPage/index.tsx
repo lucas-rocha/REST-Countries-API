@@ -3,7 +3,7 @@ import CountryDetails from '../../Components/CountryDetails';
 
 import { Container } from './styles';
 
-const CountryDetail = () => (
+const CountryDetail: React.FC = () => (
   <div className="container">
     <Container>
       <BackButton />
