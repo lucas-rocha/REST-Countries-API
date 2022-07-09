@@ -38,9 +38,11 @@ const CountryGrid: React.FC = () => {
   return (
     <Container>
       {countries.map((country: CountryItems) => (
-        <Link to={`country/${country.name.common.toLowerCase()}`}>
+        <Link
+          to={`country/${country.name.common.toLowerCase()}`}
+          key={country.cca2}
+        >
           <CountryGridItem
-            key={country.cca2}
             flag={country.flags.png}
             name={country.name.common}
             population={country.population}
