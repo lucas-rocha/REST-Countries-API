@@ -23,7 +23,7 @@ const CountryGridItem: React.FC<Props> = ({
   capital,
 }) => (
   <Container>
-    <Image src={flag} />
+    <Image src={flag} alt={name} />
     <InfoBody>
       <Title>{name}</Title>
       <InfoList>

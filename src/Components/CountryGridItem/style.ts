@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Image = styled.img`
   width: 100%;
   max-width: 100%;
-  max-height: 250px;
+  height: 200px;
 `;
 
 export const InfoBody = styled.div`

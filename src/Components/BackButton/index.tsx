@@ -8,7 +8,7 @@ import Button from '../Button';
 const BackButton: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => navigate('/');
+  const handleClick = () => navigate(-1);
 
   return (
     <Button
