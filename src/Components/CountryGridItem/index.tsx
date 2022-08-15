@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import {
   Container,
   Image,
@@ -41,4 +43,4 @@ const CountryGridItem: React.FC<Props> = ({
   </Container>
 );
 
-export default CountryGridItem;
+export default memo(CountryGridItem);
