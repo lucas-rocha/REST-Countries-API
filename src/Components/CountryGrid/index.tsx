@@ -46,7 +46,7 @@ const CountryGrid: React.FC = () => {
             flag={country.flags.png}
             name={country.name.common}
             population={country.population}
-            region={country.capital}
+            region={country.region}
             capital={country.capital}
           />
         </Link>
