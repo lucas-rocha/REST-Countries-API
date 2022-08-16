@@ -11,8 +11,8 @@ const SearchBar: React.FC = () => {
   const { countries, setCountries } = useCountries();
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const lowerCase = e.target.value.toLowerCase();
-    const filteredCountries = searchCountryByInputName(countries, lowerCase);
+    const countryLowerCase = e.target.value.toLowerCase();
+    const filteredCountries = searchCountryByInputName(countryLowerCase);
     setCountries(filteredCountries);
   };
 

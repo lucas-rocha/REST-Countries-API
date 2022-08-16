@@ -6,12 +6,10 @@ export const searchCountryByRegion = (region: string) => {
   return countries.filter((country: CountryItems) => country.region === region);
 };
 
-export const searchCountryByInputName = (
-  countries: Array<CountryItems>,
-  countryName: string
-) => {
-  if (countryName === '')
-    return JSON.parse(localStorage.getItem('countries') || '{}');
+export const searchCountryByInputName = (countryName: string) => {
+  const countries = JSON.parse(localStorage.getItem('countries') || '{}');
+  if (countryName === '') return countries;
+
   return countries.filter((country: CountryItems) =>
     country.name.common.toLowerCase().includes(countryName)
   );
