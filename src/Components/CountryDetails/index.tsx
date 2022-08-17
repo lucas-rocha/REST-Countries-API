@@ -45,7 +45,13 @@ const CountryDetails: React.FC = () => {
   const { countryName } = useParams();
 
   useEffect(() => {
-    getCountryByName(countryName).then((response) => setCountry(response));
+    getCountryByName(countryName)
+      .then((response) => {
+        setCountry(response);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, [countryName]);
 
   return (

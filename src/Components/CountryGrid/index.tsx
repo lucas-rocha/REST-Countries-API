@@ -25,19 +25,19 @@ const CountryGrid: React.FC = () => {
   const { countries, setCountries } = useCountries();
 
   useEffect(() => {
-    getCountries().then((response) => {
-      try {
-        localStorage.setItem('countries', JSON.stringify(response.data));
-        return setCountries(response.data);
-      } catch (error) {
-        return error;
-      }
-    });
+    getCountries()
+      .then((response) => {
+        localStorage.setItem('countries', JSON.stringify(response));
+        setCountries(response);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
 
   return (
     <Container>
-      {countries.map((country: CountryItems) => (
+      {countries?.map((country: CountryItems) => (
         <Link
           to={`country/${country.name.common.toLowerCase()}`}
           key={country.cca2}
