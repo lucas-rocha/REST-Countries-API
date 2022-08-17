@@ -14,3 +14,10 @@ export const Container = styled.div`
     text-decoration: none;
   }
 `;
+
+export const SpinnerContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+`;
