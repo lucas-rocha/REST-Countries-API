@@ -41,9 +41,7 @@ const CountryGrid: React.FC = () => {
   return (
     <Container>
       {isLoading ? (
-        <SpinnerContainer>
-          <LoadingSpinner message="Loading..." />
-        </SpinnerContainer>
+        <LoadingSpinner />
       ) : (
         countries?.map((country: CountryItems) => (
           <Link

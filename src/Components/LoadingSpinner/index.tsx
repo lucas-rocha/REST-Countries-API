@@ -1,7 +1,7 @@
 import { Container, Spinner } from './styles';
 
 interface LoadingSpinnerProps {
-  message: string;
+  message?: string;
 }
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ message }) => {
