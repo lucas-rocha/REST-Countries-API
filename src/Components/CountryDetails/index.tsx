@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getCountryByName } from '../../Api/Services/Countries';
 
 import Button from '../Button';
+import LoadingSpinner from '../LoadingSpinner';
 
 import {
   Container,
@@ -42,14 +43,17 @@ interface CountryItem {
 
 const CountryDetails: React.FC = () => {
   const [country, setCountry] = useState<CountryItem>();
+  const [isLoading, setIsLoading] = useState(true);
   const { countryName } = useParams();
 
   useEffect(() => {
     getCountryByName(countryName)
       .then((response) => {
         setCountry(response);
+        setIsLoading(false);
       })
       .catch((error) => {
+        setIsLoading(false);
         console.log(error.message);
       });
   }, [countryName]);
@@ -57,6 +61,7 @@ const CountryDetails: React.FC = () => {
   return (
     (country && (
       <Container>
+        {isLoading && <LoadingSpinner />}
         <Image src={country.flags.svg} />
         <Details>
           <Title>{country.name.common}</Title>

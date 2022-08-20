@@ -5,10 +5,9 @@ import { getCountries } from '../../Api/Services/Countries';
 import useCountries from '../../Utils/Hooks/useCountries';
 
 import CountryGridItem from '../CountryGridItem';
-import ErrorFallback from '../ErrorFallback';
 import LoadingSpinner from '../LoadingSpinner';
 
-import { Container, SpinnerContainer } from './styles';
+import { Container } from './styles';
 
 export interface CountryItems {
   cca2: string;
@@ -35,6 +34,7 @@ const CountryGrid: React.FC = () => {
         setIsLoading(false);
       })
       .catch((error) => {
+        setIsLoading(false);
         console.log(error.message);
       });
   }, []);
