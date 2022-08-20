@@ -4,7 +4,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
-  min-width: 400px;
   height: 50px;
   background: ${(props) => props.theme.background.secondary};
   color: ${(props) => props.theme.colors.primary};
@@ -12,7 +11,7 @@ export const Container = styled.div`
   border-radius: 5px;
 
   @media (min-width: 550px) {
-    max-width: 400px;
+    min-width: 400px;
   }
 `;
 
