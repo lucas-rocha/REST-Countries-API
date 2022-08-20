@@ -17,6 +17,6 @@ export const getCountryByName = async (countryName) => {
     );
     return response.data[0];
   } catch (error) {
-    return console.error(error);
+    return error;
   }
 };
