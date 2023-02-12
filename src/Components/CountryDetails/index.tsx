@@ -1,7 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getCountryByName } from '../../Api/Services/Countries';
-
 import Button from '../Button';
 import LoadingSpinner from '../LoadingSpinner';
 
@@ -15,106 +11,83 @@ import {
   Title,
 } from './styles';
 
-interface CountryItem {
-  name: {
-    common: string;
-    nativeName: {
-      [key: string]: {
-        official: string;
-      };
-    };
-  };
-  flags: {
-    svg: string;
-  };
-  population: number;
-  region: string;
-  subregion: string;
-  capital: string;
-  tld: string;
-  currencies: {
-    [key: string]: {
-      name: string;
-    };
-  };
-  languages: string;
-  borders: [];
+interface Props {
+  flag: string | undefined;
+  name: string | undefined;
+  nativeName: string | undefined;
+  population: string | undefined;
+  region: string | undefined;
+  subregion: string | undefined;
+  capital: string | undefined;
+  tld: string | undefined;
+  currencies: string | undefined;
+  languages: string | null;
+  borders: [] | undefined;
+  isLoading: boolean;
 }
 
-const CountryDetails: React.FC = () => {
-  const [country, setCountry] = useState<CountryItem>();
-  const [isLoading, setIsLoading] = useState(true);
-  const { countryName } = useParams();
-
-  useEffect(() => {
-    getCountryByName(countryName)
-      .then((response) => {
-        setCountry(response);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        console.log(error.message);
-      });
-  }, [countryName]);
-
-  return (
-    (country && (
-      <Container>
-        {isLoading && <LoadingSpinner />}
-        <Image src={country.flags.svg} />
-        <Details>
-          <Title>{country.name.common}</Title>
-          <DetailsList>
-            <li>
-              <b>Native Name: </b>
-              {
-                country.name.nativeName[Object.keys(country.name.nativeName)[0]]
-                  .official
-              }
-            </li>
-            <li>
-              <b>Population: </b> {country.population.toLocaleString('en')}
-            </li>
-            <li>
-              <b>Region: </b> {country.region}
-            </li>
-            <li>
-              <b>Sub Region: </b> {country.subregion}
-            </li>
-            <li>
-              <b>Capital:</b> {country.capital}
-            </li>
-          </DetailsList>
-          <DetailsList>
-            <li>
-              <b>Top Level Domain: </b> {country.tld}
-            </li>
-            <li>
-              <b>Currencies: </b>
-              {country.currencies &&
-                country.currencies[Object.keys(country.currencies)[0]].name}
-            </li>
-            <li>
-              <b>Languages: </b>
-              {Object.values(country.languages).toString()}
-            </li>
-          </DetailsList>
-          {country.borders && (
-            <DetailsFooter>
-              <h3>Border Countries:</h3>
-              <DetailsFooterButton>
-                {country.borders.map((border) => (
-                  <Button text={border} key={border} />
-                ))}
-              </DetailsFooterButton>
-            </DetailsFooter>
-          )}
-        </Details>
-      </Container>
-    )) ||
-    null
-  );
-};
+const CountryDetails: React.FC<Props> = ({
+  flag,
+  name,
+  nativeName,
+  population,
+  region,
+  subregion,
+  capital,
+  tld,
+  currencies,
+  languages,
+  borders,
+  isLoading,
+}) => (
+  <Container>
+    {isLoading && <LoadingSpinner />}
+    <Image src={flag} />
+    <Details>
+      <Title>{name}</Title>
+      <DetailsList>
+        <li>
+          <b>Native Name: </b>
+          {nativeName}
+        </li>
+        <li>
+          <b>Population: </b> {population}
+        </li>
+        <li>
+          <b>Region: </b> {region}
+        </li>
+        <li>
+          <b>Sub Region: </b> {subregion}
+        </li>
+        <li>
+          <b>Capital:</b> {capital}
+        </li>
+      </DetailsList>
+      <DetailsList>
+        <li>
+          <b>Top Level Domain: </b> {tld}
+        </li>
+        <li>
+          <b>Currencies: </b>
+          {currencies}
+        </li>
+        <li>
+          <b>Languages: </b>
+          {languages}
+        </li>
+      </DetailsList>
+      {borders && (
+        <DetailsFooter>
+          <h3>Border Countries:</h3>
+          <DetailsFooterButton>
+            {borders.map((border) => (
+              <Button text={border} key={border} />
+            ))}
+          </DetailsFooterButton>
+        </DetailsFooter>
+      )}
+    </Details>
+  </Container>
+);
 
 export default CountryDetails;
