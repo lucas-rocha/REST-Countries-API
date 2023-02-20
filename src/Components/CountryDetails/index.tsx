@@ -12,17 +12,17 @@ import {
 } from './styles';
 
 interface Props {
-  flag: string | undefined;
-  name: string | undefined;
-  nativeName: string | undefined;
-  population: string | undefined;
-  region: string | undefined;
-  subregion: string | undefined;
-  capital: string | undefined;
-  tld: string | undefined;
-  currencies: string | undefined;
-  languages: string | null;
-  borders: [] | undefined;
+  flag: string;
+  name: string;
+  nativeName: string;
+  population: string;
+  region: string;
+  subregion: string;
+  capital: string;
+  tld: string;
+  currencies: string;
+  languages: string;
+  borders: [];
   isLoading: boolean;
 }
 

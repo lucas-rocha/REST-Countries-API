@@ -10,28 +10,28 @@ import { Container } from './styles';
 
 interface CountryItem {
   name: {
-    common: string | undefined;
+    common: string;
     nativeName: {
       [key: string]: {
-        official: string | undefined;
+        official: string;
       };
     };
   };
   flags: {
-    svg: string | undefined;
+    svg: string;
   };
-  population: number | undefined;
-  region: string | undefined;
-  subregion: string | undefined;
-  capital: string | undefined;
-  tld: string | undefined;
+  population: number;
+  region: string;
+  subregion: string;
+  capital: string;
+  tld: string;
   currencies: {
     [key: string]: {
-      name: string | undefined;
+      name: string;
     };
   };
   languages: string;
-  borders: [] | undefined;
+  borders: [];
 }
 
 const CountryDetail: React.FC = () => {
@@ -57,30 +57,28 @@ const CountryDetail: React.FC = () => {
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <BackButton />
           <div>
-            <CountryDetails
-              flag={country?.flags?.svg}
-              name={country?.name.common}
-              nativeName={
-                country?.name.nativeName[
-                  Object.keys(country.name.nativeName)[0]
-                ].official
-              }
-              population={country?.population?.toLocaleString('en')}
-              region={country?.region}
-              subregion={country?.subregion}
-              capital={country?.capital}
-              tld={country?.tld}
-              currencies={
-                country?.currencies[Object.keys(country.currencies)[0]].name
-              }
-              borders={country?.borders}
-              languages={
-                country?.languages
-                  ? Object.values(country.languages).toString()
-                  : null
-              }
-              isLoading={isLoading}
-            />
+            {country && (
+              <CountryDetails
+                flag={country.flags.svg}
+                name={country.name.common}
+                nativeName={
+                  country.name.nativeName[
+                    Object.keys(country.name.nativeName)[0]
+                  ].official
+                }
+                population={country.population.toLocaleString('en')}
+                region={country.region}
+                subregion={country.subregion}
+                capital={country.capital}
+                tld={country.tld}
+                currencies={
+                  country.currencies[Object.keys(country.currencies)[0]].name
+                }
+                borders={country.borders}
+                languages={Object.values(country.languages).toString()}
+                isLoading={isLoading}
+              />
+            )}
           </div>
         </ErrorBoundary>
       </Container>
