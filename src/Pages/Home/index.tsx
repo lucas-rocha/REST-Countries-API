@@ -3,7 +3,7 @@ import { SearchRow } from './styles';
 
 import SearchBar from '../../Components/SearchBar';
 import FilterBar from '../../Components/FilterBar';
-import CountryGrid from '../../Components/CountryGrid';
+import CountryGrid from '../../Layouts/CountryGrid';
 import ErrorFallback from '../../Components/ErrorFallback';
 
 const Home: React.FC = () => (

@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { getCountries } from '../../Api/Services/Countries';
 import useCountries from '../../Utils/Hooks/useCountries';
 
-import CountryGridItem from '../CountryGridItem';
-import LoadingSpinner from '../LoadingSpinner';
+import CountryGridItem from '../../Components/CountryGridItem';
+import LoadingSpinner from '../../Components/LoadingSpinner';
 
 import { Container } from './styles';
 

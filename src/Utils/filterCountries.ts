@@ -1,4 +1,4 @@
-import { CountryItems } from '../Components/CountryGrid';
+import { CountryItems } from '../Layouts/CountryGrid';
 
 export const searchCountryByRegion = (region: string) => {
   const countries = JSON.parse(localStorage.getItem('countries') || '{}');
