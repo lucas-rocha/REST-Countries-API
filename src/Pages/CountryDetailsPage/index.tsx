@@ -1,46 +1,20 @@
 import { useEffect, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { useParams } from 'react-router-dom';
-import { getCountryByName } from '../../Api/Services/Countries';
+import { getCountryByName, ICountries } from '../../Api/Services/Countries';
 import BackButton from '../../Components/BackButton';
 import CountryDetails from '../../Components/CountryDetails';
 import ErrorFallback from '../../Components/ErrorFallback';
 
 import { Container } from './styles';
 
-interface CountryItem {
-  name: {
-    common: string;
-    nativeName: {
-      [key: string]: {
-        official: string;
-      };
-    };
-  };
-  flags: {
-    svg: string;
-  };
-  population: number;
-  region: string;
-  subregion: string;
-  capital: string;
-  tld: string;
-  currencies: {
-    [key: string]: {
-      name: string;
-    };
-  };
-  languages: string;
-  borders: [];
-}
-
 const CountryDetail: React.FC = () => {
-  const [country, setCountry] = useState<CountryItem>();
+  const [country, setCountry] = useState<ICountries | any>();
   const [isLoading, setIsLoading] = useState(true);
   const { countryName } = useParams();
 
   useEffect(() => {
-    getCountryByName(countryName)
+    getCountryByName(countryName as string)
       .then((response) => {
         setCountry(response);
         setIsLoading(false);
